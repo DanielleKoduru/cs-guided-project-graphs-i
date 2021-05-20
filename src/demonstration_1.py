@@ -17,9 +17,18 @@ class GraphNode:
         self.color = None
 
 def color_graph(graph, colors):
-    # Your code here
+    # Go over all vertices
+    for vertex in graph:
+        # Color each vertex, based on whatever colors are legal
+        # Build legal colors
+        # Find all of our neighbors
+        used_colors = set([neighbor.color for neighbor in vertex.neighbors])
+        # pick the first legal color
+        for color in colors:
+            if color not in used_colors:
+                vertex.color = color
+                break
 
-                
 g1 = GraphNode('G1')
 g2 = GraphNode('G2')
 g3 = GraphNode('G3')
@@ -48,6 +57,7 @@ g5.neighbors.add(g3)
 g5.neighbors.add(g4)
 
 graph = [g1, g2, g3, g4, g5]
+colors = set(['red', 'blue', 'green', 'orange', 'purple'])
 
 color_graph(graph, colors)
 
